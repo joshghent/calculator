@@ -1,4 +1,4 @@
-### Calcualtor
+### Calculator
 
 A calculator made as part of the FreeCodeCamp course. 
 
