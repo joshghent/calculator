@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    
+    font: 14px Verdana, sans-serif;
 }
 
 html {
@@ -9,8 +11,16 @@ html {
 }
 
 #calculator {
-    width: 250px;
+    width: 220px;
     height: auto;
+    margin: auto;
+    padding: 10px;
+    background-color: #add8e6;
+    border-radius: 10px;
+}
+
+.keys {
+    overflow: hidden;
 }
 
 .keys span {
@@ -29,6 +39,5 @@ html {
 }
 
 .keys span:hover {
-    background: deepskyblue;
-    opacity: 0.3;
+    background: #b19cd9;
 }
