@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background: radial-gradient(circle, #fff, 35%, #ccc);
+}
+
+#calculator {
+    width: 250px;
+    height: auto;
+}
+
+.keys span {
+    background: white;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    text-align: center;
+    float: left;
+    line-height: 50px;
+    border-radius: 5px;
+    margin: 0 5px 5px 0;
+    
+    /* Prevent users from selecting text */
+    -webkit-user-select: none;
+}
+
+.keys span:hover {
+    background: deepskyblue;
+    opacity: 0.3;
+}
