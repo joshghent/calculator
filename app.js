@@ -13,6 +13,15 @@
 */
 // ================================================
 
+
+/*
+    Checks
+        * If the last keypress was the . or a operator then only allow numbers and not allow sum
+        * You should be prevented from pressing a number when you click equals
+*/
+
+// TODO: Add if statement to check when a button is pressed to see if the display-value_array is < 21 chars, if it is then refuse input
+
 var display_value_array = [];
 var display = document.getElementById('display');
 var number_keys = document.querySelectorAll('span.number');
@@ -20,4 +29,47 @@ var number_keys = document.querySelectorAll('span.number');
 function number_key_pressed(num){
     display_value_array.push(num);
     display.value = display_value_array.join('');
+}
+
+function operator_key_pressed(type){
+    if(type == '/'){
+        display_value_array.push('÷');
+        display.value = display_value_array.join('');
+    }
+    else if(type == '*'){
+        display_value_array.push('×');
+        display.value = display_value_array.join('');
+    }
+    else if(type == '+'){
+        display_value_array.push('+');
+        display.value = display_value_array.join('');
+    }
+    else if(type == '-'){
+        display_value_array.push('-');
+        display.value = display_value_array.join('');
+    }
+    else{
+        console.log('Error :(');
+    }
+}
+
+function evaluate_display_value(){
+    // First let's make a seperate array from the display array so we can work with it without messing with the users display.
+    var computation_logic_array = display_value_array;
+    
+    // Next we join the display_value_array as eval() requires a string
+    // I'm terrible at naming variables, don't hate :D
+    var string_to_do_calculation_on = computation_logic_array.join('');
+    
+    // Replace the multiple and divide symbols with the actual ones so we can run eval
+    string_to_do_calculation_on = string_to_do_calculation_on.replace(/×/g, '*').replace(/÷/g, '/');
+    
+    // Next we do eval and store the output as a variable
+    var output_calculation = eval(string_to_do_calculation_on);
+    
+    // Output the calculation to the display
+    display.value = output_calculation;
+    
+    // Reset the display array to the sum (this should also prevent you from pressing number keys, I think)
+    display_value_array = [output_calculation];
 }
