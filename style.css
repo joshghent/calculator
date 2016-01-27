@@ -68,3 +68,17 @@ html {
     box-shadow: 0px 0px rebeccapurple;
     top: 3px;
 }
+
+.ac-button {}
+
+.clear-button {}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('FontAwesome.otf');
+}
+
+.github-icon {
+    font-size: 20px;
+    font-family: 'FontAwesome';
+}
