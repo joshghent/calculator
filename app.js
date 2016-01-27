@@ -102,3 +102,8 @@ function backspace(){
     display_value_array.pop();
     display.value = display_value_array.join('');
 }
+
+function reset(){
+    display_value_array = [];
+    display.value = display_value_array.join('');
+}

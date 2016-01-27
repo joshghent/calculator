@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css'>
-    <link rel="stylesheet" href="animation.css">
 	<title>Calculator</title>
 </head>
 <body>
@@ -12,7 +11,7 @@
         <input id='display' maxlength="21" readonly>
         <div class='keys'>
             <a href='https://github.com/joshghent/calculator' target='_blank'><span class='github-icon'></span></a>
-            <span>C</span>
+            <span onclick='reset()'>C</span>
             <span onclick="square_number()">x<sup>2</sup></span>
             <span onclick="backspace()">⬅</span>
             <span class='number' onclick='number_key_pressed(7)'>7</span>
