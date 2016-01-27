@@ -96,3 +96,9 @@ function square_number(){
     // And then we reset the display array
     display_value_array = [square_number_output];
 }
+
+// Removes last element of the display_value_array and then re-renders the display value.
+function backspace(){
+    display_value_array.pop();
+    display.value = display_value_array.join('');
+}
