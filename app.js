@@ -31,28 +31,36 @@ function number_key_pressed(num){
     display.value = display_value_array.join('');
 }
 
+// This function runs when an operator key, multiple, add etc. is pressed
+// The type is a parameter passed to identify the operation of the key that was pressed
 function operator_key_pressed(type){
+    // Divide type
     if(type == '/'){
         display_value_array.push('÷');
         display.value = display_value_array.join('');
     }
+    // Multiple type
     else if(type == '*'){
         display_value_array.push('×');
         display.value = display_value_array.join('');
     }
+    // Add type
     else if(type == '+'){
         display_value_array.push('+');
         display.value = display_value_array.join('');
     }
+    // Subtract type
     else if(type == '-'){
         display_value_array.push('-');
         display.value = display_value_array.join('');
     }
+    // In the case that it did not find one of those four types (unlikely but always include error handling!)
     else{
         console.log('Error :(');
     }
 }
 
+// This function runs when the equals button is pressed
 function evaluate_display_value(){
     // First let's make a seperate array from the display array so we can work with it without messing with the users display.
     var computation_logic_array = display_value_array;
@@ -72,4 +80,19 @@ function evaluate_display_value(){
     
     // Reset the display array to the sum (this should also prevent you from pressing number keys, I think)
     display_value_array = [output_calculation];
+}
+
+function square_number(){
+    // First we want to get the output of the current display in case people want to do things like (5 + 3)^2
+    evaluate_display_value();
+    
+    // Next we get the value from the display value and multiple it by itself and store it as the variable 'square_number_output'
+    // Since we just ran the evaluate_display_value function then there can only be 1 item in the display value array
+    var square_number_output = display_value_array[0] * display_value_array[0]
+    
+    // Then we reset the display value
+    display.value = square_number_output;
+    
+    // And then we reset the display array
+    display_value_array = [square_number_output];
 }
