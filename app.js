@@ -54,6 +54,10 @@ function operator_key_pressed(type){
         display_value_array.push('-');
         display.value = display_value_array.join('');
     }
+    else if(type == "decimal"){
+        display_value_array.push('.');
+        display.value = display_value_array.join('');
+    }
     // In the case that it did not find one of those four types (unlikely but always include error handling!)
     else{
         console.log('Error :(');
