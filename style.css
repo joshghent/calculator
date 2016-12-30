@@ -64,10 +64,6 @@ html {
     top: 3px;
 }
 
-.ac-button {}
-
-.clear-button {}
-
 @font-face {
     font-family: 'FontAwesome';
     src: url('FontAwesome.otf');
