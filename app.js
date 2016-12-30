@@ -30,18 +30,6 @@ function numberKeyPressed(num) {
   display.value = calculatorDisplayContents.join('');
 }
 
-// Bind the number keys to the work as if the number keys on the browser are clicked
-keyboardJS.bind('1', (e) => { numberKeyPressed(1); });
-keyboardJS.bind('2', (e) => { numberKeyPressed(2); });
-keyboardJS.bind('3', (e) => { numberKeyPressed(3); });
-keyboardJS.bind('4', (e) => { numberKeyPressed(4); });
-keyboardJS.bind('5', (e) => { numberKeyPressed(5); });
-keyboardJS.bind('6', (e) => { numberKeyPressed(6); });
-keyboardJS.bind('7', (e) => { numberKeyPressed(7); });
-keyboardJS.bind('8', (e) => { numberKeyPressed(8); });
-keyboardJS.bind('9', (e) => { numberKeyPressed(9); });
-keyboardJS.bind('0', (e) => { numberKeyPressed(0); });
-
 // This function runs when an operator key, multiple, add etc. is pressed
 // The type is a parameter passed to identify the operation of the key that was pressed
 function operatorKeyPress(type) {
