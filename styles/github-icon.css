@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'github';
-  src: url('github.ttf');
+  src: url('../fonts/github.ttf');
   font-weight: normal;
   font-style: normal;
 }
