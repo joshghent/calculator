@@ -23,7 +23,17 @@ function getKeyTypeLastPressed() {
   return lastKeyPressedType;
 }
 
+function displayNotFull() {
+  if (calculatorDisplayContents.length >= 18) {
+    return false;
+  }
+}
+
 function numberKeyPressed(num) {
+  if (displayNotFull() === false) {
+    return false;
+  }
+
   calculatorDisplayContents.push(num);
   display.value = calculatorDisplayContents.join('');
 }
@@ -32,7 +42,7 @@ function numberKeyPressed(num) {
 // The type is a parameter passed to identify the operation of the key that was pressed
 function operatorKeyPress(type) {
     // Only allow the pressing on a number key if the last key pressed does not match an operator and the display is not blank
-  if (getKeyTypeLastPressed() !== 'operator' && calculatorDisplayContents.join('') !== '') {
+  if (getKeyTypeLastPressed() !== 'operator' && calculatorDisplayContents.join('') !== '' && displayNotFull() === false) {
     // Divide type
     if (type === '/') {
       calculatorDisplayContents.push('÷');
