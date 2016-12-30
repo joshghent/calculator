@@ -14,12 +14,10 @@ function getKeyTypeLastPressed() {
 
   let lastKeyPressedType;
 
-  for (let i = 0; i < operators.length; i += 1) {
-    if (lastKeyInDisplayArray === operators[i]) {
-      lastKeyPressedType = 'operator';
-    } else {
-      lastKeyPressedType = 'number';
-    }
+  if (operators.indexOf(lastKeyInDisplayArray) < 0) {
+    lastKeyPressedType = 'number';
+  } else {
+    lastKeyPressedType = 'operator';
   }
 
   return lastKeyPressedType;
@@ -51,7 +49,7 @@ function operatorKeyPress(type) {
     } else if (type === '-') {
       calculatorDisplayContents.push('-');
       display.value = calculatorDisplayContents.join('');
-    } else if (type == 'decimal') {
+    } else if (type === 'decimal') {
       calculatorDisplayContents.push('.');
       display.value = calculatorDisplayContents.join('');
     } else {
@@ -64,6 +62,10 @@ function operatorKeyPress(type) {
 function calculate() {
     // First let's make a seperate array from the display array so we can work with it without messing with the users display.
   const logicArray = calculatorDisplayContents;
+
+  if (logicArray.length === 0) {
+    return false;
+  }
 
   // Next we join the calculatorDisplayContents as eval() requires a string
   // I'm terrible at naming variables, don't hate :D
@@ -84,7 +86,9 @@ function calculate() {
 
 function squareNumber() {
   // First we want to get the output of the current display in case people want to do things like (5 + 3)^2
-  calculate();
+  if (calculate() === false) {
+    return false;
+  }
   
   // Next we get the value from the display value and multiple it by itself and store it as the variable 'square_number_output'
   // Since we just ran the evaluateDisplayValue function then there can only be 1 item in the display value array
